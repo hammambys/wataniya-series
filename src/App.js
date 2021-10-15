@@ -1,7 +1,10 @@
 import "./App.css";
-import Test from "./test";
+import { Container } from "react-bootstrap";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 import Register from "./components/Register";
 import Login from "./components/Login";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -10,6 +13,7 @@ function App() {
         <Router>
           <AuthProvider>
             <Switch>
+              <Route exact path="/" component={Home} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
             </Switch>
