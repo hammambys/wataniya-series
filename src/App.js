@@ -5,11 +5,13 @@ import { AuthProvider } from "./context/AuthContext";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Home from "./components/Home";
+import TopBar from "./components/Topbar";
 
 function App() {
   return (
-    <Container>
-      <div className="w-100" style={{ maxWidth: "400px" }}>
+    <>
+      <TopBar />
+      <div>
         <Router>
           <AuthProvider>
             <Switch>
@@ -20,7 +22,7 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
-    </Container>
+    </>
   );
 }
 
