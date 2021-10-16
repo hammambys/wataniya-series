@@ -9,7 +9,7 @@ import TopBar from "./components/Topbar";
 
 function App() {
   return (
-    <>
+    <div>
       <TopBar />
       <div>
         <Router>
@@ -22,7 +22,7 @@ function App() {
           </AuthProvider>
         </Router>
       </div>
-    </>
+    </div>
   );
 }
 
