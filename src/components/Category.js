@@ -1,28 +1,17 @@
 import React from "react";
-import { Card, Row, Col } from "react-bootstrap";
-import test from "./test.jpg";
+import { Card, Row } from "react-bootstrap";
+import SerieCard from "./SerieCard";
 
-export default function Category() {
+export default function Category(props) {
   return (
-    <div style={{ padding: "20px", margin: "20px", border: "solid 3px #fff" }}>
+    <div className="p-3 m-3" style={{ border: "solid 3px #fff" }}>
       <Card text="white" bg="black" className="text-center">
-        <Card.Header style={{ marginBottom: "20px" }}>
-          <Card.Title>Category</Card.Title>
+        <Card.Header className="mb-3">
+          <Card.Title>{props.title}</Card.Title>
         </Card.Header>
         <Row xs={1} md={2} className="g-4">
           {Array.from({ length: 4 }).map((_, idx) => (
-            <Col>
-              <Card bg="black">
-                <Card.Img
-                  variant="top"
-                  src={test}
-                  style={{ height: "200px" }}
-                />
-                <Card.Body>
-                  <Card.Subtitle>Serie 1</Card.Subtitle>
-                </Card.Body>
-              </Card>
-            </Col>
+            <SerieCard title="Loutil" />
           ))}
         </Row>
         <Card.Footer>
