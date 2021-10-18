@@ -5,29 +5,36 @@ import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
 const seriesRef = collection(db, "series");
-const serieslist = [];
+var serieslist = [];
 
-const fetchSeries = async () => {
+const getSeries = async () => {
   const data = await getDocs(seriesRef);
   const series = await data.docs.map((doc) => ({
     ...doc.data(),
     id: doc.id,
   }));
-  serieslist.push(series);
+  serieslist = series.slice();
+  return series;
 };
 
 export default class Category extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      test: [],
+      series: [
+        { name: "", category: "", seasons: {} },
+        { name: "", category: "", seasons: {} },
+      ],
     };
   }
-  componentDidMount() {}
+  componentDidMount() {
+    getSeries().then((res) => {
+      this.setState({ series: [...res] });
+    });
+  }
 
   render() {
-    fetchSeries();
-    console.log(serieslist);
+    console.log(this.state.series);
     return (
       <div className="p-3 m-3" style={{ border: "solid 3px #fff" }}>
         <Card text="white" bg="black" className="text-center">
@@ -36,7 +43,7 @@ export default class Category extends React.Component {
           </Card.Header>
           <Row xs={1} md={2} className="g-4">
             {Array.from({ length: 4 }).map((_, idx) => (
-              <SerieCard title={""} />
+              <SerieCard title={this.state.series[1].name} />
             ))}
           </Row>
           <Card.Footer>

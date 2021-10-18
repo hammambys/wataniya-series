@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import Category from "./Category";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebase";
 
 export default function Home() {
   return (
