@@ -5,21 +5,18 @@ export default function TopBar() {
   return (
     <>
       <Navbar bg="dark" expand="lg" variant="dark">
-        <Navbar.Brand href="/" style={{ padding: "20px" }}>
-          Wataniya Series
-        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto"></Nav>
+          <Nav className="ml-auto"></Nav>
           <Nav>
             <Nav.Link href="/login" style={{ marginRight: "20px" }}>
-              Login
+              تسجيل الدخول
             </Nav.Link>
             <Nav.Link href="/register" style={{ marginRight: "20px" }}>
-              Register
+              تسجيل
             </Nav.Link>
             <NavDropdown
-              title="Language"
+              title="اللغة"
               id="basic-nav-dropdown"
               style={{ marginRight: "20px" }}
             >
@@ -29,6 +26,9 @@ export default function TopBar() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        <Navbar.Brand href="/" style={{ padding: "20px" }}>
+          الوطنية مسلسلات
+        </Navbar.Brand>
       </Navbar>
     </>
   );

@@ -32,13 +32,11 @@ export default class Category extends React.Component {
   componentDidMount() {
     getSeries().then((res) => {
       this.setState({ series: [...res] });
-      
     });
   }
-  
+
   render() {
-    serieslist = this.state.series
-    console.log(serieslist);
+    serieslist = this.state.series;
     return (
       <div className="p-3 m-3" style={{ border: "solid 3px #fff" }}>
         <Card text="white" bg="black" className="text-center">
@@ -46,10 +44,15 @@ export default class Category extends React.Component {
             <Card.Title>{this.props.title}</Card.Title>
           </Card.Header>
           <Row xs={1} md={2} className="g-4">
-           {this.props.title === serieslist[0].category && <SerieCard title={serieslist[0].name} imgId={serieslist[0].img_id} />} 
+            {serieslist.map((serie) => {
+              if (this.props.title === serie.category) {
+                return <SerieCard title={serie.name} imgId={serie.img_id} />;
+              }
+              return null;
+            })}
           </Row>
           <Card.Footer>
-            <Card.Link href="#">More</Card.Link>
+            <Card.Link href="#">المزيد</Card.Link>
           </Card.Footer>
         </Card>
       </div>

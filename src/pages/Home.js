@@ -7,18 +7,18 @@ export default function Home() {
     <Container>
       <Row>
         <Col>
-          <Category title="Comedy" />;
+          <Category title="كوميدي" />;
         </Col>
         <Col>
-          <Category title="Drama" />;
+          <Category title="دراما" />;
         </Col>
       </Row>
       <Row>
         <Col>
-          <Category title="Action" />;
+          <Category title="تاريخي" />;
         </Col>
         <Col>
-          <Category title="Romance" />;
+          <Category title="اجتماعي" />;
         </Col>
       </Row>
     </Container>
