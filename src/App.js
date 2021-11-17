@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import TopBar from "./components/Topbar";
+import Watch from "./pages/Watch";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
               <Route exact path="/" component={Home} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
+              <Route path="/watch" component={Watch} />
             </Switch>
           </AuthProvider>
         </Router>
