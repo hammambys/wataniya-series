@@ -11,21 +11,19 @@ function App() {
   return (
     <Router>
       <div className="App">
-      <TopBar />
-      <div className="content">  
+        <TopBar />
+        <div className="content">
           <AuthProvider>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
-              <Route path="/watch/:name_en" component={Watch} />
+              <Route path="/watch" component={Watch} />
             </Switch>
           </AuthProvider>
-        
+        </div>
       </div>
-    </div>
     </Router>
-    
   );
 }
 

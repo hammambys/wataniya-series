@@ -1,19 +1,32 @@
 import React from "react";
-import { Navbar, Nav, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 export default function TopBar() {
   return (
     <>
       <Navbar bg="dark" expand="lg" variant="dark">
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Nav className="ml-auto">
+          <Navbar.Text>
+            <Link to="/"> الوطنية مسلسلات</Link>
+          </Navbar.Text>
+          <Navbar.Text>
+            <Link to="/login"> تسجيل الدخول </Link>{" "}
+          </Navbar.Text>
+          <Navbar.Text>
+            <Link to="/register"> انشاء حساب </Link>
+          </Navbar.Text>
+        </Nav>
+
+        {/*<Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto"></Nav>
           <Nav>
-            <Nav.Link href="/login" style={{ marginRight: "20px" }}>
-              تسجيل الدخول
+            <Nav.Link style={{ marginRight: "20px" }}>
+              
             </Nav.Link>
             <Nav.Link href="/register" style={{ marginRight: "20px" }}>
-              تسجيل
+              
             </Nav.Link>
             <NavDropdown
               title="اللغة"
@@ -26,9 +39,9 @@ export default function TopBar() {
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
-        <Navbar.Brand href="/" style={{ padding: "20px" }}>
-          الوطنية مسلسلات
-        </Navbar.Brand>
+        <Navbar.Brand style={{ padding: "20px" }}>
+          
+  </Navbar.Brand>*/}
       </Navbar>
     </>
   );
