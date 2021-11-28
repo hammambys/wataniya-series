@@ -1,27 +1,35 @@
-import React from "react";
-import Carousel from "react-bootstrap/esm/Carousel";
-import testimg from "../components/test.jpg";
+import React, { useEffect,useState } from "react";
+import { useParams } from "react-router";
+import { db } from "../firebase";
+import { collection, getDocs } from "firebase/firestore";
+
 
 export default function Watch() {
+  const {name_en} =useParams();
+  const[series,setSeries]=useState([]);
+
+  //get all series from database
+  const seriesRef = collection(db, "series");
+  var serieslist = [];
+  const getSeries = async () => {
+  const data = await getDocs(seriesRef);
+  const series = await data.docs.map((doc) => ({
+    ...doc.data(),
+    id: doc.id,
+  }));
+  serieslist = series.slice();
+  
+  return series;
+};
+
+useEffect(() => {
+  getSeries().then((res) => {
+    setSeries( [...res] );
+  }).then(console.log(series))
+},[]);
+
   return (
     <div>
-      <Carousel>
-        <Carousel.Item>
-          <img className="d-block w-10" src={testimg} alt="First slide" />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img className="d-block w-10" src={testimg} alt="Second slide" />
-
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
       <iframe
         width="420"
         height="315"

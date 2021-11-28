@@ -4,9 +4,11 @@ import SerieCard from "./SerieCard";
 import { db } from "../firebase";
 import { collection, getDocs } from "firebase/firestore";
 
+
+
+//get all series from database
 const seriesRef = collection(db, "series");
 var serieslist = [];
-
 const getSeries = async () => {
   const data = await getDocs(seriesRef);
   const series = await data.docs.map((doc) => ({
@@ -16,6 +18,7 @@ const getSeries = async () => {
   serieslist = series.slice();
   return series;
 };
+
 
 export default class Category extends React.Component {
   constructor(props) {
@@ -37,6 +40,7 @@ export default class Category extends React.Component {
 
   render() {
     serieslist = this.state.series;
+    console.log(serieslist)
     return (
       <div className="p-3 m-3" style={{ border: "solid 3px #fff" }}>
         <Card text="white" bg="black" className="text-center">

@@ -9,21 +9,23 @@ import Watch from "./pages/Watch";
 
 function App() {
   return (
-    <div>
+    <Router>
+      <div className="App">
       <TopBar />
-      <div>
-        <Router>
+      <div className="content">  
           <AuthProvider>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/register" component={Register} />
               <Route path="/login" component={Login} />
-              <Route path="/watch" component={Watch} />
+              <Route path="/watch/:name_en" component={Watch} />
             </Switch>
           </AuthProvider>
-        </Router>
+        
       </div>
     </div>
+    </Router>
+    
   );
 }
 
